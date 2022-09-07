@@ -1,31 +1,44 @@
 #import "BackgroundThread.h"
 
-#ifdef RCT_NEW_ARCH_ENABLED
-#import "RNBackgroundThreadSpec.h"
-#endif
-
 @implementation BackgroundThread
-RCT_EXPORT_MODULE()
+RCT_EXPORT_MODULE(BackgroundThread)
 
-// Example method
-// See // https://reactnative.dev/docs/native-modules-ios
-RCT_REMAP_METHOD(multiply,
-                 multiplyWithA:(double)a withB:(double)b
-                 withResolver:(RCTPromiseResolveBlock)resolve
-                 withRejecter:(RCTPromiseRejectBlock)reject)
-{
-  NSNumber *result = @(a * b);
 
-  resolve(result);
+RCT_EXPORT_METHOD(runInBackground:(RCTResponseSenderBlock)callback ){
+
+     [self runInBackground_withPriority:@"MAX" secondParameter:callback];
 }
 
-// Don't compile this code when we build for the old architecture.
-#ifdef RCT_NEW_ARCH_ENABLED
-- (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
-    (const facebook::react::ObjCTurboModule::InitParams &)params
-{
-    return std::make_shared<facebook::react::NativeBackgroundThreadSpecJSI>(params);
-}
-#endif
+RCT_EXPORT_METHOD(runInBackground_withPriority:(NSString*)threadPriority secondParameter:(RCTResponseSenderBlock)callback ){
 
+    NSThread *thread = [[NSThread alloc] initWithTarget:self
+                        selector:@selector(runcallback:) object:callback ];
+
+//   MAX for maximum thread priority = 1.0
+//   MIN for minimum thread priority = 0.1
+//   NORMAL for normal thread priority = 0.5
+
+    if([threadPriority isEqualToString: @"MAX"]){
+            [thread setThreadPriority:1.0];
+    }
+    else if([threadPriority isEqualToString: @"MIN"]){
+            [thread setThreadPriority:0.1];
+    }
+    else if([threadPriority isEqualToString: @"NORMAL"]){
+            [thread setThreadPriority:0.5];
+    }
+    else {
+             [thread setThreadPriority:0.5];
+    }
+
+
+    [thread start];
+}
+
+-(void) runcallback:(RCTResponseSenderBlock) _callback{
+    _callback(@[]);
+}
 @end
+
+
+

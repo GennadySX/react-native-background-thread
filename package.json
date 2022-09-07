@@ -1,6 +1,6 @@
 {
-  "name": "react-native-background-thread",
-  "version": "0.1.0",
+  "name": "@gennadysx/react-native-background-thread",
+  "version": "1.1.0",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -31,12 +31,14 @@
     "bootstrap": "yarn example && yarn && yarn example pods"
   },
   "keywords": [
+    "GennadySX",
+    "react-native-background-thread",
     "react-native",
     "ios",
     "android"
   ],
   "repository": "https://github.com/gennadysx/react-native-background-thread",
-  "author": "Gennady Sabirovsky <the@gennadysx.com> (https://github.com/gennadysx)",
+  "author": "Gennady Sabirovsky <the@gennadysx.com> (https://gennadysx.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gennadysx/react-native-background-thread/issues"
