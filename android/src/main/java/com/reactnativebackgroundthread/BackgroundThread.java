@@ -1,4 +1,4 @@
-package com.reactnativebackgroundthread
+package com.reactnativebackgroundthread;
 
 import com.facebook.react.bridge.Callback;
 
