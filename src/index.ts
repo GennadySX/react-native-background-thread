@@ -10,7 +10,7 @@ export enum BackgroundThreadPriority {
 
 
 
-const RunInBackgroundW = (callback: () => void | Function, priority?: BackgroundThreadPriority) => {
+const run = (callback: () => void | Function, priority?: BackgroundThreadPriority) => {
 
   if (priority) {
     BackgroundThread.runInBackground_withPriority(priority,()=>{
@@ -25,4 +25,4 @@ const RunInBackgroundW = (callback: () => void | Function, priority?: Background
 
 
 
-export default RunInBackgroundW;
+export default {run, BackgroundThreadPriority};
