@@ -1,7 +1,7 @@
 {
   "name": "@gennadysx/react-native-background-thread",
-  "version": "1.1.0",
-  "description": "test",
+  "version": "1.1.2",
+  "description": "Run your code in background thread",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
@@ -64,7 +64,7 @@
     "pod-install": "^0.1.0",
     "prettier": "^2.0.5",
     "react": "17.0.2",
-    "react-native": "0.68.2",
+    "react-native": "^0.63.3",
     "react-native-builder-bob": "^0.18.3",
     "release-it": "^15.0.0",
     "typescript": "^4.5.2"
