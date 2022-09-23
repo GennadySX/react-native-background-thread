@@ -1,6 +1,6 @@
 {
   "name": "@gennadysx/react-native-background-thread",
-  "version": "1.1.3",
+  "version": "1.2.1",
   "description": "Run your code in background thread",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",

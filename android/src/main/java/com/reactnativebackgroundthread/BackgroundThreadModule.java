@@ -18,7 +18,7 @@ import com.facebook.react.bridge.ReactMethod;
 
 @ReactModule(name = BackgroundThreadModule.NAME)
 public class BackgroundThreadModule extends ReactContextBaseJavaModule {
-    public static final String NAME = "BackgroundThread";
+    public static final String MODULE_NAME = "BackgroundThread";
 
     public BackgroundThreadModule(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -27,7 +27,7 @@ public class BackgroundThreadModule extends ReactContextBaseJavaModule {
     @Override
     @NonNull
     public String getName() {
-        return NAME;
+        return MODULE_NAME;
     }
 
 
@@ -70,12 +70,6 @@ public class BackgroundThreadModule extends ReactContextBaseJavaModule {
     public void runInBackground(final Callback callback){
 
         this.runInBackground_withPriority("MAX",callback);
-    }
-
-    @NonNull
-    @Override
-    public String getName() {
-        return MODULE_NAME;
     }
 
 }
