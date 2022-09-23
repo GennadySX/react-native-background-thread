@@ -16,7 +16,7 @@ import com.facebook.react.bridge.ReactMethod;
 
 
 
-@ReactModule(name = BackgroundThreadModule.NAME)
+@ReactModule(name = BackgroundThreadModule.MODULE_NAME)
 public class BackgroundThreadModule extends ReactContextBaseJavaModule {
     public static final String MODULE_NAME = "BackgroundThread";
 
